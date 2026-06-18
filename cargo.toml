@@ -1,9 +1,31 @@
-# Cargo.toml add karo
 [package]
 name = "linuxab"
 version = "0.1.0"
 edition = "2021"
 
+[package]
+name = "linuxab-terminal"
+version = "0.1.0"
+edition = "2021"
+authors = ["Jatin <linuxab>"]
+description = "Linuxab OS Terminal Shell - Retro CRT aesthetic with fastfetch"
+
 [dependencies]
-# Agar tumhe alloc chahiye toh:
-# (no_std mein alloc built-in hota hai, bas enable karna padta hai)
+tokio = { version = "1.35", features = ["full"] }
+tokio-util = "0.7"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+uuid = { version = "1.6", features = ["v4"] }
+chrono = "0.4"
+libc = "0.2"
+walkdir = "2.4"
+sysinfo = "0.30"
+reqwest = { version = "0.11", features = ["json"] }
+axum = { version = "0.7", features = ["ws"] }
+tower = "0.4"
+tower-http = { version = "0.5", features = ["fs", "cors"] }
+futures = "0.3"
+
+[profile.release]
+opt-level = 3
+lto = true
